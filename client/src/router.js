@@ -8,6 +8,8 @@ import RecordPage from "./routes/RecordPage.js";
 
 import TeacherPage from "./routes/TeacherPage.js";
 
+import LoginPage from "./routes/LoginPage.js";
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -15,6 +17,7 @@ function RouterConfig({ history }) {
       <Route path="/UserPage" component={UserPage} />
       <Route path="/RecordPage" component={RecordPage} />
       <Route path="/TeacherPage" component={TeacherPage} />
+      <Route path="/LoginPage" component={LoginPage} />
     </Router>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { TabBar } from 'antd-mobile';
+import { TabBar, NavBar } from 'antd-mobile';
 import TeacherPage from './TeacherPage';
 import RecordPage from './RecordPage';
 import UserPage from './UserPage';
@@ -16,6 +16,7 @@ function mapStateToProps(state) {
 function IndexPage({ dispatch, selectedTab }) {
   return (
     <div className={styles.normal}>
+      <NavBar>炫青教育</NavBar>
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
