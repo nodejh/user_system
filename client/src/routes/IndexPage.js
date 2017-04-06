@@ -16,7 +16,7 @@ function mapStateToProps(state) {
 function IndexPage({ dispatch, selectedTab }) {
   return (
     <div className={styles.normal}>
-      <NavBar>炫青教育</NavBar>
+      <NavBar iconName="false">炫青教育</NavBar>
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"

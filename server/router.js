@@ -8,7 +8,7 @@ const api = require('./routers/api');
 
 
 router.use('/', index.routes(), index.allowedMethods());
-router.use('/api', api.routes(), api.allowedMethods());
+router.use('/api/v0.1', api.routes(), api.allowedMethods());
 
 
 module.exports = router;

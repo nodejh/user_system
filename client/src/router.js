@@ -1,14 +1,11 @@
 import React from 'react';
 import { Router, Route } from 'dva/router';
 import IndexPage from './routes/IndexPage';
+import UserPage from './routes/UserPage.js';
+import RecordPage from './routes/RecordPage.js';
+import TeacherPage from './routes/TeacherPage.js';
+import LoginPage from './routes/LoginPage.js';
 
-import UserPage from "./routes/UserPage.js";
-
-import RecordPage from "./routes/RecordPage.js";
-
-import TeacherPage from "./routes/TeacherPage.js";
-
-import LoginPage from "./routes/LoginPage.js";
 
 function RouterConfig({ history }) {
   return (
@@ -17,7 +14,7 @@ function RouterConfig({ history }) {
       <Route path="/UserPage" component={UserPage} />
       <Route path="/RecordPage" component={RecordPage} />
       <Route path="/TeacherPage" component={TeacherPage} />
-      <Route path="/LoginPage" component={LoginPage} />
+      <Route path="/login" component={LoginPage} />
     </Router>
   );
 }

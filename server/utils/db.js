@@ -3,7 +3,7 @@ const { db } = require('./../config');
 
 const pool = mysql.createPool({
   host: db.host,
-  user: db.user,
+  user: db.username,
   password: db.password,
   database: db.database,
 });

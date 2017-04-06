@@ -14,5 +14,12 @@
         ["import", { "libraryName": "antd-mobile", "style": "css" }]
       ]
     }
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/" : "" }
+    }
   }
 }

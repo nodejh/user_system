@@ -7,8 +7,7 @@ const apiLogin = require('./../controllers/apiLogin');
 
 
 router.get('/isLogin', apiLogin.isLogin);
-router.get('/a', async (ctx) => {
-  ctx.body = 'ddd';
-});
+router.get('/logout', apiLogin.logout);
+router.post('/login', apiLogin.login);
 
 module.exports = router;
