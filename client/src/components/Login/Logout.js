@@ -13,7 +13,7 @@ function Logout({ dispatch }) {
       <Button
         className="btn"
         size="small"
-        style={{ borderRadius: 0, marginTop: 30, marginBottom: 50 }}
+        style={{ borderRadius: 0, marginTop: 50, marginBottom: 150 }}
         onClick={handleClick}
       >
         退出我的账号

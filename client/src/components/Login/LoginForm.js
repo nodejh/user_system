@@ -36,8 +36,7 @@ function LoginForm({ dispatch, loading, school, form }) {
   return (
     <div className={styles.normal}>
       <List>
-        <WhiteSpace />
-        <WhiteSpace />
+        <WhiteSpace size="lg" />
         <InputItem
           {...getFieldProps('number', {
             rules: [{
@@ -62,9 +61,7 @@ function LoginForm({ dispatch, loading, school, form }) {
         >
           密码
         </InputItem>
-        <WhiteSpace />
-        <WhiteSpace />
-        <WhiteSpace />
+        <WhiteSpace size="lg" />
         <WingBlank>
           <Button
             className="btn"

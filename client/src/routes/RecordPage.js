@@ -5,7 +5,7 @@ import styles from './RecordPage.css';
 function RecordPage() {
   return (
     <div className={styles.normal}>
-      Route Component: RecordPage
+      暂无咨询记录
     </div>
   );
 }

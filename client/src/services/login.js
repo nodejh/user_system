@@ -24,7 +24,6 @@ const logout = async () => {
  * @return {Promise}         是否登录成功
  */
 const login = async (payload) => {
-  console.log('payload: ', payload);
   const options = {
     method: 'POST',
     headers: {

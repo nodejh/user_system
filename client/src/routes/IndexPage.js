@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { TabBar, NavBar } from 'antd-mobile';
+import { TabBar, NavBar, Icon } from 'antd-mobile';
 import TeacherPage from './TeacherPage';
 import RecordPage from './RecordPage';
 import UserPage from './UserPage';
@@ -14,6 +14,23 @@ function mapStateToProps(state) {
 
 
 function IndexPage({ dispatch, selectedTab }) {
+  const press = (tab) => {
+    console.log('tab: ', tab);
+    dispatch({ type: 'index/changeTab', payload: tab });
+    switch (tab) {
+      case 'record':
+        dispatch({ type: 'record/getList' });
+        break;
+      case 'teacher':
+        dispatch({ type: 'teacher/getList' });
+        break;
+      case 'user':
+        dispatch({ type: 'user/getInfo' });
+        break;
+      default:
+    }
+  };
+
   return (
     <div className={styles.normal}>
       <NavBar iconName="false">炫青教育</NavBar>
@@ -23,8 +40,10 @@ function IndexPage({ dispatch, selectedTab }) {
         barTintColor="white"
       >
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+          // eslint-disable-next-line
+          icon={<Icon type={require('./../assets/svg/user_home_page/chat.svg')} color="#33A3F4" />}
+          // eslint-disable-next-line
+          selectedIcon={<Icon type={require('./../assets/svg/icon-core/comment.svg')} />}
           title="咨询记录"
           key="咨询记录"
           selected={selectedTab === 'record'}
@@ -33,8 +52,10 @@ function IndexPage({ dispatch, selectedTab }) {
           <TeacherPage />
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+          // eslint-disable-next-line
+          icon={<Icon type={require('./../assets/svg/tab_bar/朋友.svg')} />}
+          // eslint-disable-next-line
+          selectedIcon={<Icon type={require('./../assets/svg/tab_bar/朋友按下.svg')} />}
           title="咨询师"
           key="咨询师"
           selected={selectedTab === 'teacher'}
@@ -43,12 +64,14 @@ function IndexPage({ dispatch, selectedTab }) {
           <RecordPage />
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+          // eslint-disable-next-line
+          icon={<Icon type={require('./../assets/svg/tab_bar/财富.svg')} />}
+          // eslint-disable-next-line
+          selectedIcon={<Icon type={require('./../assets/svg/tab_bar/财富按下.svg')} />}
           title="我的"
           key="我的"
           selected={selectedTab === 'user'}
-          onPress={() => { dispatch({ type: 'index/changeTab', payload: 'user' }); }}
+          onPress={() => { press('user'); }}
         >
           <UserPage />
         </TabBar.Item>
@@ -56,9 +79,6 @@ function IndexPage({ dispatch, selectedTab }) {
     </div>
   );
 }
-
-IndexPage.propTypes = {
-};
 
 
 export default connect(mapStateToProps)(IndexPage);

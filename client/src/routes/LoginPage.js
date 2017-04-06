@@ -14,7 +14,7 @@ const TabPane = Tabs.TabPane;
 function LoginPage() {
   return (
     <div className={styles.normal}>
-      <NavBar>炫青教育</NavBar>
+      <NavBar iconName="false">炫青教育</NavBar>
       <Tabs
         defaultActiveKey="1"
         pageSize={3}

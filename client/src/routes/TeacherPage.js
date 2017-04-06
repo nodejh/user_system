@@ -5,7 +5,7 @@ import styles from './TeacherPage.css';
 function TeacherPage() {
   return (
     <div className={styles.normal}>
-      Route Component: TeacherPage
+      暂无咨询师
     </div>
   );
 }
