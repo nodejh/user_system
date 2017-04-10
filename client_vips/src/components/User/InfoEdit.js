@@ -10,7 +10,6 @@ import {
 } from './../../utils/constants';
 import styles from './InfoEdit.css';
 
-const CheckboxItem = Checkbox.CheckboxItem;
 
 function mapStateToProps(state) {
   const { info } = state.user;

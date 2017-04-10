@@ -38,6 +38,16 @@ const categoryList = [{
   value: '比赛',
   label: '比赛',
 }];
+const commentLevelList = [{
+  value: '很满意',
+  label: '很满意',
+}, {
+  value: '满意',
+  label: '满意',
+}, {
+  value: '不满意',
+  label: '不满意',
+}];
 
 
 export default {
@@ -45,4 +55,5 @@ export default {
   genderList,
   intentionList,
   categoryList,
+  commentLevelList,
 };

@@ -7,6 +7,11 @@ import UserPage from './UserPage';
 import styles from './IndexPage.css';
 
 
+/**
+ * map state to props
+ * @param  {object} state state
+ * @return {object}       props
+ */
 function mapStateToProps(state) {
   const { selectedTab, hidden } = state.index;
   return { selectedTab, hidden };
@@ -34,7 +39,7 @@ function IndexPage({ dispatch, selectedTab }) {
 
   return (
     <div className={styles.normal}>
-      <NavBar iconName="false">炫青教育</NavBar>
+      <NavBar iconName="false">炫青教育(咨询师)</NavBar>
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
@@ -57,8 +62,8 @@ function IndexPage({ dispatch, selectedTab }) {
           icon={<Icon type={require('./../assets/svg/tab_bar/朋友.svg')} />}
           // eslint-disable-next-line
           selectedIcon={<Icon type={require('./../assets/svg/tab_bar/朋友按下.svg')} />}
-          title="咨询师"
-          key="咨询师"
+          title="会员"
+          key="会员"
           selected={selectedTab === 'teacher'}
           onPress={() => { dispatch({ type: 'index/changeTab', payload: 'teacher' }); }}
         >

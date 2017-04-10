@@ -34,7 +34,7 @@ function IndexPage({ dispatch, selectedTab }) {
 
   return (
     <div className={styles.normal}>
-      <NavBar iconName="false">炫青教育</NavBar>
+      <NavBar iconName="false">炫青教育(会员)</NavBar>
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
@@ -48,9 +48,9 @@ function IndexPage({ dispatch, selectedTab }) {
           title="咨询记录"
           key="咨询记录"
           selected={selectedTab === 'record'}
-          onPress={() => { dispatch({ type: 'index/changeTab', payload: 'record' }); }}
+          onPress={() => { press('record'); }}
         >
-          <TeacherPage />
+          <RecordPage />
         </TabBar.Item>
         <TabBar.Item
           // eslint-disable-next-line
@@ -60,9 +60,9 @@ function IndexPage({ dispatch, selectedTab }) {
           title="咨询师"
           key="咨询师"
           selected={selectedTab === 'teacher'}
-          onPress={() => { dispatch({ type: 'index/changeTab', payload: 'teacher' }); }}
+          onPress={() => { press('teacher'); }}
         >
-          <RecordPage />
+          <TeacherPage />
         </TabBar.Item>
         <TabBar.Item
           // eslint-disable-next-line

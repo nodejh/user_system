@@ -23,6 +23,10 @@ export default {
         Toast.success('登录成功', 1);
         // 获取用户信息
         yield put({ type: 'user/getInfo' });
+        // 获取咨询信息
+        yield put({ type: 'record/getList' });
+        // 获取咨询师信息
+        yield put({ type: 'teacher/getList' });
         // 跳转到首页
         yield put(routerRedux.push('/'));
         return true;

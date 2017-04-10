@@ -80,13 +80,6 @@ function InfoShow({ info }) {
             <p>类别: {info.category && info.category.split(',')}</p>
             <p>意向: {info.intention && info.intention.split(',')}</p>
           </Card.Body>
-          <Card.Footer
-            content={
-              <div>
-                会员到期时间: {info.expires && moment(info.expires).format('YYYY-MM-DD HH:mm:ss')}
-              </div>
-            }
-          />
         </Card>
       </List>
     </div>

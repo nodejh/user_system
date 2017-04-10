@@ -53,7 +53,7 @@ function InfoShow({ info }) {
   return (
     <div className={styles.normal}>
       <List renderHeader={() => '基本信息'}>
-        <Card full>
+        <Card>
           <Card.Header
             title={`${info.realname} (${info.gender})`}
             extra={

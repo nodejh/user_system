@@ -94,7 +94,7 @@ const login = async (ctx) => {
       school,
       create_date: new Date(),
     };
-    const sqlInsert = 'insert into vips set ?';
+    const sqlInsert = 'insert into vips set ? ON DUPLICATE KEY UPDATE ?';
     if (school === '四川大学') {
       // 数据库中没有该用户，判断学校 -->四川大学 ，并进行模拟登录
       const cookie = await loginZhjwSCU(number, password);
@@ -120,7 +120,7 @@ const login = async (ctx) => {
       insertData.major = major;
       insertData.college = college;
     }
-    const insertResult = await query(sqlInsert, [insertData]);
+    const insertResult = await query(sqlInsert, [insertData, insertData]);
     ctx.session = {
       userId: insertResult.insertId,
       number,
