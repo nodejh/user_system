@@ -190,7 +190,11 @@ function Add({ dispatch, list, recordAndInfoByNumber, form }) {
                   >
                     <WingBlank>
                       <p>跟进日期 {new Date(item.date).toLocaleDateString()}</p>
-                      <pre>${item.content}</pre>
+                      <pre
+                        style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+                      >
+                        {item.content}
+                      </pre>
                       <WhiteSpace />
                       {
                         item.is_vip_confirm === 1 && <CommnetInfo comment={comment} />

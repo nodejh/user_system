@@ -81,7 +81,11 @@ function List({ list }) {
                     extra={<span>{getConfirmStateBadge(item.is_vip_confirm)}</span>}
                   />
                   <Card.Body>
-                    <pre>{item.content}</pre>
+                    <pre
+                      style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+                    >
+                      {item.content}
+                    </pre>
                     <WhiteSpace size="lg" />
                     <Accordion
                       accordion
