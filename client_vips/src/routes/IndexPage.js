@@ -7,6 +7,11 @@ import UserPage from './UserPage';
 import styles from './IndexPage.css';
 
 
+/**
+ * map state to props
+ * @param  {object} state state
+ * @return {object}       props
+ */
 function mapStateToProps(state) {
   const { selectedTab, hidden } = state.index;
   return { selectedTab, hidden };

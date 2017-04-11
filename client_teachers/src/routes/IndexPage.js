@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import { TabBar, NavBar, Icon } from 'antd-mobile';
-import TeacherPage from './TeacherPage';
+import VipPage from './VipPage';
 import RecordPage from './RecordPage';
 import UserPage from './UserPage';
 import styles from './IndexPage.css';
@@ -26,8 +26,8 @@ function IndexPage({ dispatch, selectedTab }) {
       case 'record':
         dispatch({ type: 'record/getList' });
         break;
-      case 'teacher':
-        dispatch({ type: 'teacher/getList' });
+      case 'vip':
+        dispatch({ type: 'vip/getList' });
         break;
       case 'user':
         dispatch({ type: 'user/getInfo' });
@@ -53,9 +53,9 @@ function IndexPage({ dispatch, selectedTab }) {
           title="咨询记录"
           key="咨询记录"
           selected={selectedTab === 'record'}
-          onPress={() => { dispatch({ type: 'index/changeTab', payload: 'record' }); }}
+          onPress={() => { press('record'); }}
         >
-          <TeacherPage />
+          <RecordPage />
         </TabBar.Item>
         <TabBar.Item
           // eslint-disable-next-line
@@ -64,10 +64,10 @@ function IndexPage({ dispatch, selectedTab }) {
           selectedIcon={<Icon type={require('./../assets/svg/tab_bar/朋友按下.svg')} />}
           title="会员"
           key="会员"
-          selected={selectedTab === 'teacher'}
-          onPress={() => { dispatch({ type: 'index/changeTab', payload: 'teacher' }); }}
+          selected={selectedTab === 'vip'}
+          onPress={() => { press('vip'); }}
         >
-          <RecordPage />
+          <VipPage />
         </TabBar.Item>
         <TabBar.Item
           // eslint-disable-next-line
