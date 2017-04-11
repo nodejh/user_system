@@ -10,8 +10,8 @@ import {
   Accordion,
 } from 'antd-mobile';
 import { datetimeToString } from './../../utils/timeFormat';
-import Commnet from './Comment';
 import CommnetInfo from './CommentInfo';
+import Pagination from './Pagination'
 import styles from './List.css';
 
 
@@ -45,7 +45,10 @@ function getConfirmStateBadge(status) {
   return badge;
 }
 
-function List({ list }) {
+function List({ list, page, pageCount }) {
+  console.log('list: ', list);
+  console.log('page: ', page);
+  console.log('pageCount: ', pageCount);
   return (
     <div className={styles.normal}>
       {
@@ -55,6 +58,7 @@ function List({ list }) {
             <WingBlank>
               <Result
                 img={<Icon
+                  // eslint-disable-next-line
                   type={require('./../../assets/svg/结果页icon/等待处理.svg')}
                   style={{ width: '1.2rem', height: '1.2rem' }}
                 />}
@@ -91,7 +95,7 @@ function List({ list }) {
                       }}
                     >
                       <Accordion.Panel
-                        header={`咨询师 ${item.realname}`}
+                        header={`会员 ${item.realname}`}
                         style={{ border: 0 }}
                       >
                         <p>性别: {item.gender}</p>
@@ -104,10 +108,7 @@ function List({ list }) {
                       </Accordion.Panel>
                     </Accordion>
                     {
-                      item.is_vip_confirm === 1 ?
-                        <CommnetInfo comment={comment} />
-                        :
-                        <Commnet comment={comment} />
+                      item.is_vip_confirm === 1 && <CommnetInfo comment={comment} />
                     }
                   </Card.Body>
                 </Card>
@@ -116,15 +117,22 @@ function List({ list }) {
           );
         })
       }
+      <WingBlank>
+        <WhiteSpace size="xl" />
+        <Pagination page={page} pageCount={pageCount} />
+      </WingBlank>
+      <WhiteSpace size="xl" />
     </div>
   );
 }
 
 
 function mapStateToProps(state) {
-  const { list } = state.record;
+  const { list, page, pageCount } = state.record;
   return {
     list,
+    page,
+    pageCount,
   };
 }
 

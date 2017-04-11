@@ -7,7 +7,7 @@ export default {
     list: [],
   },
   reducers: {
-    // 获取咨询激励失败
+    // 获取咨询记录失败
     getListFail(state, { payload: message }) {
       Toast.fail(message, 2);
       return {

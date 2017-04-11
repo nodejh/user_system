@@ -34,7 +34,7 @@ function Comment({ dispatch, comment, form }) {
   return (
     <div className={styles.normal}>
       <WhiteSpace />
-      <h3 style={{ paddingLeft: '0.3rem', fontWeight: 400 }}>我的评价</h3>
+      <h3 style={{ paddingLeft: '0.3rem' }}>我的评价</h3>
       <Picker
         data={commentLevelList}
         cols={1}

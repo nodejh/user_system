@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
+import RecordList from './../components/Record/List';
 import styles from './RecordPage.css';
 
 function RecordPage() {
   return (
     <div className={styles.normal}>
-      暂无咨询记录
+      <RecordList />
     </div>
   );
 }
