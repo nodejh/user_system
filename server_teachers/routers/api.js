@@ -15,6 +15,8 @@ router.get('/user/info', apiUser.info);
 router.post('/user/update', apiUser.update);
 router.get('/vip/list', apiVip.list);
 router.get('/record/list', apiRecord.list);
+router.post('/record/add', apiRecord.add);
+router.get('/record/getRecordAndInfoByNumber', apiRecord.getRecordAndInfoByNumber);
 
 
 module.exports = router;

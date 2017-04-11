@@ -9,12 +9,18 @@ import {
   Badge,
   Accordion,
 } from 'antd-mobile';
-import { datetimeToString } from './../../utils/timeFormat';
+import { datetimeToString } from './../../utils/datetime';
 import CommnetInfo from './CommentInfo';
-import Pagination from './Pagination'
+import Pagination from './Pagination';
+import ListHeader from './ListHeader';
 import styles from './List.css';
 
 
+/**
+ * [getConfirmStateBadge description]
+ * @param  {[type]} status [description]
+ * @return {[type]}        [description]
+ */
 function getConfirmStateBadge(status) {
   let badge;
   switch (status) {
@@ -45,12 +51,22 @@ function getConfirmStateBadge(status) {
   return badge;
 }
 
+
+/**
+ * [List description]
+ * @param {[type]} list      [description]
+ * @param {[type]} page      [description]
+ * @param {[type]} pageCount [description]
+ * @return {object} object
+ */
 function List({ list, page, pageCount }) {
-  console.log('list: ', list);
-  console.log('page: ', page);
-  console.log('pageCount: ', pageCount);
+  // console.log('list: ', list);
+  // console.log('page: ', page);
+  // console.log('pageCount: ', pageCount);
   return (
     <div className={styles.normal}>
+      <WhiteSpace size="xl" />
+      <ListHeader test={111} list={list} />
       {
         list.length === 0 ?
         (
@@ -98,12 +114,13 @@ function List({ list, page, pageCount }) {
                         header={`会员 ${item.realname}`}
                         style={{ border: 0 }}
                       >
+                        <p>学校: {item.school}</p>
+                        <p>学号: {item.number}</p>
                         <p>性别: {item.gender}</p>
                         <p>年级: {item.grade}</p>
                         <p>院系: {item.college} {item.major}</p>
                         <p>QQ: {item.qq}</p>
                         <p>手机: {item.phone}</p>
-                        <p>学校: {item.school}</p>
                         <WhiteSpace />
                       </Accordion.Panel>
                     </Accordion>
@@ -127,6 +144,11 @@ function List({ list, page, pageCount }) {
 }
 
 
+/**
+ * [mapStateToProps description]
+ * @param  {[type]} state [description]
+ * @return {[type]}       [description]
+ */
 function mapStateToProps(state) {
   const { list, page, pageCount } = state.record;
   return {

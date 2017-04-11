@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { TabBar, NavBar, Icon } from 'antd-mobile';
+import { TabBar, NavBar, Icon, Button } from 'antd-mobile';
 import VipPage from './VipPage';
 import RecordPage from './RecordPage';
 import UserPage from './UserPage';
@@ -39,7 +39,9 @@ function IndexPage({ dispatch, selectedTab }) {
 
   return (
     <div className={styles.normal}>
-      <NavBar iconName="false">炫青教育(咨询师)</NavBar>
+      <NavBar iconName="false">
+        炫青教育(咨询师)
+      </NavBar>
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"

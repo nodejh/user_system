@@ -1,6 +1,6 @@
 import React from 'react';
 import { createForm } from 'rc-form';
-import { Picker, List, InputItem, WhiteSpace, Button, Checkbox } from 'antd-mobile';
+import { Picker, List, InputItem, WhiteSpace, Button } from 'antd-mobile';
 import { connect } from 'dva';
 import {
   schoolList,
@@ -10,8 +10,12 @@ import {
 } from './../../utils/constants';
 import styles from './InfoEdit.css';
 
-const CheckboxItem = Checkbox.CheckboxItem;
 
+/**
+ * map state to props
+ * @param  {object} state state
+ * @return {object}       props
+ */
 function mapStateToProps(state) {
   const { info } = state.user;
   return {
@@ -21,6 +25,13 @@ function mapStateToProps(state) {
 }
 
 
+/**
+ * 编辑个人信息页面
+ * @param {Function} dispatch dispatch
+ * @param {object} info     个人信息
+ * @param {object} form     form
+ * @return {object} object
+ */
 function InfoEdit({ dispatch, info, form }) {
   const { getFieldProps } = form;
   const onSubmit = (e) => {
