@@ -1,5 +1,7 @@
 
 .normal {
+  max-width: 12rem;
+  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 130px;
 }

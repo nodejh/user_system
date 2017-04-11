@@ -61,18 +61,18 @@ function LoginForm({ dispatch, loading, school, form }) {
         >
           密码
         </InputItem>
-        <WhiteSpace size="lg" />
-        <WingBlank>
-          <Button
-            className="btn"
-            type="primary"
-            loading={loading}
-            onClick={submit}
-          >
-            登录
-          </Button>
-        </WingBlank>
       </List>
+      <WhiteSpace size="xl" />
+      <WingBlank>
+        <Button
+          className="btn"
+          type="primary"
+          loading={loading}
+          onClick={submit}
+        >
+          登录
+        </Button>
+      </WingBlank>
     </div>
   );
 }

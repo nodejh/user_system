@@ -66,7 +66,7 @@ export default {
     },
     // 添加咨询记录成功
     addSuccess(state) {
-      Toast.success('添加咨询记录成功', 1);
+      Toast.success('添加咨询记录成功', 2);
       return {
         ...state,
       };
