@@ -9,7 +9,7 @@ function CommentInfo({ comment }) {
       <WhiteSpace />
       <h3 style={{ paddingLeft: '0.3rem', fontWeight: 400 }}>我的评价</h3>
       <p>满意程度: {commentLevel}</p>
-      <p>评价内容: {commentContent || '暂无'}</p>
+      <pre>评价内容: {commentContent || '暂无'}</pre>
     </div>
   );
 }

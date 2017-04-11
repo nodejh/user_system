@@ -8,21 +8,31 @@ export default {
   reducers: {},
   effects: {
     // 判断用户是否登录
-    *isLogin({ payload }, { call, put }) {
+    * isLogin({ payload }, { call, put }) {
       const { res } = yield call(loginService.isLogin);
       if (!res.success || !res.data.isLogin) {
-        yield put(routerRedux.push('/login'));
+        return yield put(routerRedux.push('/login'));
       }
+      // 获取用户信息
+      yield put({ type: 'user/getInfo' });
+      // 获取咨询信息
+      yield put({ type: 'record/getList' });
+      // 获取会员信息
+      yield put({ type: 'vip/getList' });
     },
 
     // 登录操作
-    *submit({ payload }, { call, put }) {
+    * submit({ payload }, { call, put }) {
       const { res } = yield call(loginService.login, payload);
       if (res.success) {
         // 登录成功
         Toast.success('登录成功', 1);
         // 获取用户信息
         yield put({ type: 'user/getInfo' });
+        // 获取咨询信息
+        yield put({ type: 'record/getList' });
+        // 获取会员信息
+        yield put({ type: 'vip/getList' });
         // 跳转到首页
         yield put(routerRedux.push('/'));
         return true;
@@ -31,7 +41,7 @@ export default {
     },
 
     // 退出登录
-    *logout({ payload }, { call, put }) {
+    * logout({ payload }, { call, put }) {
       const { res } = yield call(loginService.logout);
       if (res.success) {
         return yield put(routerRedux.push('/login'));

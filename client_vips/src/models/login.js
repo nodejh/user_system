@@ -11,8 +11,14 @@ export default {
     *isLogin({ payload }, { call, put }) {
       const { res } = yield call(loginService.isLogin);
       if (!res.success || !res.data.isLogin) {
-        yield put(routerRedux.push('/login'));
+        return yield put(routerRedux.push('/login'));
       }
+      // 获取用户信息
+      yield put({ type: 'user/getInfo' });
+      // 获取咨询信息
+      yield put({ type: 'record/getList' });
+      // 获取咨询师信息
+      yield put({ type: 'teacher/getList' });
     },
 
     // 登录操作

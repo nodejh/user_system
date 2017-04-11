@@ -101,7 +101,7 @@ function List({ list, page, pageCount }) {
                     extra={<span>{getConfirmStateBadge(item.is_vip_confirm)}</span>}
                   />
                   <Card.Body>
-                    <p>{item.content}</p>
+                    <pre>{item.content}</pre>
                     <WhiteSpace size="lg" />
                     <Accordion
                       accordion
@@ -128,6 +128,7 @@ function List({ list, page, pageCount }) {
                       item.is_vip_confirm === 1 && <CommnetInfo comment={comment} />
                     }
                   </Card.Body>
+                  <Card.Footer content={`跟进日期 ${datetimeToString(new Date(item.date))}`} />
                 </Card>
               </WingBlank>
             </div>

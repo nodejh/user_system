@@ -9,7 +9,7 @@ import {
   Badge,
   Accordion,
 } from 'antd-mobile';
-import { datetimeToString } from './../../utils/timeFormat';
+import { datetimeToString } from './../../utils/datetime';
 import Commnet from './Comment';
 import CommnetInfo from './CommentInfo';
 import styles from './List.css';
@@ -81,7 +81,7 @@ function List({ list }) {
                     extra={<span>{getConfirmStateBadge(item.is_vip_confirm)}</span>}
                   />
                   <Card.Body>
-                    <p>{item.content}</p>
+                    <pre>{item.content}</pre>
                     <WhiteSpace size="lg" />
                     <Accordion
                       accordion
@@ -110,6 +110,7 @@ function List({ list }) {
                         <Commnet comment={comment} />
                     }
                   </Card.Body>
+                  <Card.Footer content={`跟进日期 ${datetimeToString(new Date(item.date))}`} />
                 </Card>
               </WingBlank>
             </div>

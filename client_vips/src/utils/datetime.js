@@ -1,3 +1,8 @@
+/**
+ * 将日期转换为字符串
+ * @param  {date} date 日期
+ * @return {string}      字符串
+ */
 function datetimeToString(date) {
   // Hours part from the timestamp
   const hours = date.getHours();
@@ -14,6 +19,16 @@ function datetimeToString(date) {
 }
 
 
+/**
+ * 判断一个日期是否是今天
+ * @param  {date}  date 需要判断的日期
+ * @return {Boolean}      是否是今天
+ */
+function isToday(date) {
+  return date.toDateString() === new Date().toDateString();
+}
+
 export default {
   datetimeToString,
+  isToday,
 };
