@@ -7,11 +7,11 @@ const app = dva();
 
 app.model(require('./models/index'));
 
-app.model(require("./models/teacher"));
+app.model(require('./models/teacher'));
 
-app.model(require("./models/record"));
+app.model(require('./models/record'));
 
-app.model(require("./models/user"));
+app.model(require('./models/user'));
 
 app.model(require('./models/login'));
 
