@@ -61,6 +61,7 @@ export default {
     production: {
       extraBabelPlugins: [
         'transform-runtime',
+        'transform-remove-console',
         ['import', { 'libraryName': 'antd-mobile', 'libraryDirectory': 'lib', 'style': true }]
       ],
       extraPostCSSPlugins: [
