@@ -98,12 +98,12 @@ function List({ list }) {
                         header={`咨询师 ${item.realname}`}
                         style={{ border: 0 }}
                       >
+                        <p>学校: {item.school}</p>
                         <p>性别: {item.gender}</p>
                         <p>年级: {item.grade}</p>
                         <p>院系: {item.college} {item.major}</p>
                         <p>QQ: {item.qq}</p>
                         <p>手机: {item.phone}</p>
-                        <p>学校: {item.school}</p>
                         <WhiteSpace />
                       </Accordion.Panel>
                     </Accordion>

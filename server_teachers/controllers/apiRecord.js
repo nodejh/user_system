@@ -25,18 +25,18 @@ const list = async (ctx) => {
     page = parseInt(page, 10) || 1;
     // console.log('page: ', page); // PAGE_SIZE
     // 查询总页数的 sql
-    const sqlCount = 'select count(id) as count from record where record.teacher_id = ?';
+    const sqlCount = 'select count(id) as count from records where records.teacher_id = ?';
     const sql = 'select ' +
-      'record.id as id, ' +
-      'record.teacher_id as teacher_id, ' +
-      'record.vip_id as vip_id, ' +
-      'record.date as date, ' +
-      'record.is_vip_confirm as is_vip_confirm, ' +
-      'record.content as content, ' +
-      'record.record_time as record_time, ' +
-      'record.confirm_time as confirm_time, ' +
-      'record.comment_content as comment_content, ' +
-      'record.comment_level as comment_level, ' +
+      'records.id as id, ' +
+      'records.teacher_id as teacher_id, ' +
+      'records.vip_id as vip_id, ' +
+      'records.date as date, ' +
+      'records.is_vip_confirm as is_vip_confirm, ' +
+      'records.content as content, ' +
+      'records.record_time as record_time, ' +
+      'records.confirm_time as confirm_time, ' +
+      'records.comment_content as comment_content, ' +
+      'records.comment_level as comment_level, ' +
       'vips.realname as realname, ' +
       'vips.number as number, ' +
       'vips.gender as gender, ' +
@@ -48,8 +48,8 @@ const list = async (ctx) => {
       'vips.intention as intention, ' +
       'vips.qq as qq, ' +
       'vips.phone as phone ' +
-      'from record left join vips on record.vip_id = vips.id where record.teacher_id = ? ' +
-      'order by record.id desc ' +
+      'from records left join vips on records.vip_id = vips.id where records.teacher_id = ? ' +
+      'order by records.id desc ' +
       'limit ?,?';
     const resCount = await query(sqlCount, [userId]);
     const count = resCount[0].count;
@@ -103,8 +103,8 @@ const add = async (ctx) => {
       record_time: new Date(),
     };
     // console.log('recordId: ', recordId);
-    console.log('data: ', data);
-    const sql = 'insert into record set ?';
+    // console.log('data: ', data);
+    const sql = 'insert into records set ?';
     await query(sql, [data]);
     result.success = true;
     result.message = '新建咨询记录';
@@ -140,16 +140,16 @@ const getRecordAndInfoByNumber = async (ctx) => {
       'id,realname,number,expires,gender,grade,intention,major,phone,qq,school ' +
       'from vips where number = ?';
     const sql = 'select ' +
-      'record.id as id, ' +
-      'record.teacher_id as teacher_id, ' +
-      'record.vip_id as vip_id, ' +
-      'record.date as date, ' +
-      'record.is_vip_confirm as is_vip_confirm, ' +
-      'record.content as content, ' +
-      'record.record_time as record_time, ' +
-      'record.confirm_time as confirm_time, ' +
-      'record.comment_content as comment_content, ' +
-      'record.comment_level as comment_level, ' +
+      'records.id as id, ' +
+      'records.teacher_id as teacher_id, ' +
+      'records.vip_id as vip_id, ' +
+      'records.date as date, ' +
+      'records.is_vip_confirm as is_vip_confirm, ' +
+      'records.content as content, ' +
+      'records.record_time as record_time, ' +
+      'records.confirm_time as confirm_time, ' +
+      'records.comment_content as comment_content, ' +
+      'records.comment_level as comment_level, ' +
       'vips.realname as realname, ' +
       'vips.gender as gender, ' +
       'vips.college as college, ' +
@@ -160,9 +160,9 @@ const getRecordAndInfoByNumber = async (ctx) => {
       'vips.intention as intention, ' +
       'vips.qq as qq, ' +
       'vips.phone as phone ' +
-      'from record left join vips on record.vip_id = vips.id ' +
-      'where record.teacher_id = ? and record.vip_id = ? ' +
-      'order by record.id desc';
+      'from records left join vips on records.vip_id = vips.id ' +
+      'where records.teacher_id = ? and records.vip_id = ? ' +
+      'order by records.id desc';
     const resVip = await query(sqlVip, [number]);
     if (resVip.length === 0) {
       result.message = '会员不存在，请检查学号是否正确';

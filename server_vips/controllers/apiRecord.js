@@ -18,16 +18,16 @@ const list = async (ctx) => {
       return false;
     }
     const sql = 'select ' +
-      'record.id as id, ' +
-      'record.teacher_id as teacher_id, ' +
-      'record.vip_id as vip_id, ' +
-      'record.date as date, ' +
-      'record.is_vip_confirm as is_vip_confirm, ' +
-      'record.content as content, ' +
-      'record.record_time as record_time, ' +
-      'record.confirm_time as confirm_time, ' +
-      'record.comment_content as comment_content, ' +
-      'record.comment_level as comment_level, ' +
+      'records.id as id, ' +
+      'records.teacher_id as teacher_id, ' +
+      'records.vip_id as vip_id, ' +
+      'records.date as date, ' +
+      'records.is_vip_confirm as is_vip_confirm, ' +
+      'records.content as content, ' +
+      'records.record_time as record_time, ' +
+      'records.confirm_time as confirm_time, ' +
+      'records.comment_content as comment_content, ' +
+      'records.comment_level as comment_level, ' +
       'teachers.realname as realname, ' +
       'teachers.gender as gender, ' +
       'teachers.college as college, ' +
@@ -38,8 +38,8 @@ const list = async (ctx) => {
       'teachers.intention as intention, ' +
       'teachers.qq as qq, ' +
       'teachers.phone as phone ' +
-      'from record left join teachers on record.teacher_id = teachers.id where record.vip_id = ? ' +
-      'order by record.id desc';
+      'from records left join teachers on records.teacher_id = teachers.id where records.vip_id = ? ' +
+      'order by records.id desc';
     result.data.list = await query(sql, [userId]);
     result.success = true;
     result.message = '查询咨询列表成功';
@@ -72,7 +72,7 @@ const comment = async (ctx) => {
   // console.log('recordId: ', recordId);
   // console.log('data: ', data);
   try {
-    const sql = 'update record set ? where id = ?';
+    const sql = 'update records set ? where id = ?';
     await query(sql, [data, recordId]);
     result.success = true;
     result.message = '评论成功';

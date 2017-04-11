@@ -1,6 +1,6 @@
 import React from 'react';
 import { createForm } from 'rc-form';
-import { Picker, List, InputItem, WhiteSpace, Button } from 'antd-mobile';
+import { Picker, List, InputItem, WhiteSpace, Button, WingBlank } from 'antd-mobile';
 import { connect } from 'dva';
 import {
   schoolList,
@@ -162,13 +162,15 @@ function InfoEdit({ dispatch, info, form }) {
         </List.Item> */}
       </List>
       <WhiteSpace size="xl" />
-      <Button
-        className="btn"
-        type="primary"
-        onClick={onSubmit}
-      >
-        保存
-      </Button>
+      <WingBlank>
+        <Button
+          className="btn"
+          type="primary"
+          onClick={e => onSubmit(e)}
+        >
+          保存
+        </Button>
+      </WingBlank>
       <WhiteSpace size="xl" />
     </div>
   );
