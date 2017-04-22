@@ -149,7 +149,7 @@ function Add({ dispatch, list, recordAndInfoByNumber, form }) {
       </List>
       <WhiteSpace />
       {
-        recordAndInfoByNumber.info && recordAndInfoByNumber.list.length > 0 &&
+        recordAndInfoByNumber.info && recordAndInfoByNumber.list &&
         (
           <Accordion accordion>
             <Accordion.Panel
@@ -226,7 +226,7 @@ function Add({ dispatch, list, recordAndInfoByNumber, form }) {
         )
       }
       {
-        recordAndInfoByNumber.info && recordAndInfoByNumber.list.length > 0 &&
+        recordAndInfoByNumber.info &&
         (
           <div>
             <List renderHeader={() => '详细内容'}>
